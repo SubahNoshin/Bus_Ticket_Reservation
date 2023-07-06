@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BusBookingMaster.master.cs" Inherits="BusBookingProject.BusBookingMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>On Line Bus Booking</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="css/style1.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="navbar navbar-default navbar-fixed-top" color: "#c3f0fa">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="Default.aspx" class="navbar-brand">
+                        ONLINE BUS BOOKING
+
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <img src="img/loggo.png" height="100"width="100"margin-left="30"/>
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="Default.aspx" style="font-weight: bold">HOME</a></li>
+                        <li><a runat="server" href="AboutUs.aspx" style="font-weight: bold" >ABOUT US</a></li>
+                          <li><a runat="server" href="Home.aspx" id="A2" style="font-weight: bold" title="Search Buses">SEARCH BUSES</a></li>
+                        <% if (Session["UserID"] != null)
+                           { %>
+                        <li><a runat="server" href="BookingReport.aspx" id="lnkDashboard" style="font-weight: bold">BOOKING REPORT</a></li>
+                        <%} %>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if (Session["UserID"] == null)
+                           { %>
+                        <li><a runat="server" href="Admin/AdminLogin.aspx" style="font-weight: bold" color="#c3f0fa">ADMIN</a></li>
+                        <li><a runat="server" href="UserRegistration.aspx" id="linkRegister" style="font-weight: bold"><i class="glyphicon glyphicon-user"></i> REGISTRATION</a></li>
+                        <li><a runat="server" href="Login.aspx" id="linkLogin" style="font-weight: bold" title="Login">LOGIN</a></li>
+                        
+
+                        <%}else{ %>
+                        <li>
+                           Hii!!! <asp:Label ID="lblName" runat="server" Font-Bold="true"></asp:Label>
+                           <asp:Button ID="btnLogout" runat="server" CssClass="alert-success" Text="Logout" OnClick="btnLogout_Click" />
+                        </li>
+                        <%} %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+          <footer class="navbar navbar-default navbar-static-top" style="text-align: center;font-weight: bold;margin-top:0%;padding: 10px;">
+           <section style="width: 49%; float: left;color:#d07373 ">Copyright &copy; <%: DateTime.Now.Year %> </section>
+              <div class="footer">
+    <div class="container">
+    <div class="row">
+        <div class="footer-col-1">
+            <h3>Download Our App</h3>
+            <p>Download App for Android and ios mobile phone</p>
+            <div class="app-logo">
+                <img src="img/play.jpg" />
+
+
+                <img src="img/app.jpg">
+            </div>
+
+        </div>
+        <div class="footer-col-2">
+            <img src="img/imgg.jpg">
+            <p>Our purpose is to make daily life easy by doing stuffs online</p>
+            
+        </div> 
+        <div class="footer-col-3">
+            <h3>Useful Links</h3>
+            <ul>
+                <li>coupons</li>
+                <li>Blog post</li>
+                <li>Return Policy</li>
+                <li>Join Affiliate</li>
+            </ul>
+        </div> 
+        <div class="footer-col-4">
+            <h3>Follow us</h3>
+            <ul>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+                <li>YouTube</li>
+            </ul>
+        </div>
+</div>
+<hr>
+<div class="con">
+    <div class="rw">
+    <div class="coll">
+<p class="copyright">Terms and Conditions  <i class="fa fa-wrench" aria-hidden="true"></i></p>
+
+</div>
+<div class="coll">
+    <p class="copyright">Return and Refund policy  <i class="fa fa-wrench" aria-hidden="true"></i></p>
+    
+    </div>
+    <div class="coll">
+        <p class="copyright">Private policy  <i class="fa fa-wrench" aria-hidden="true"></i></p>
+        
+        </div>
+          
+
+</div>
+</div>
+
+
+</div>
+</div>
+
+        </footer>
+    </form>
+     <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-1.4.1.js"></script>
+</body>
+</html>
